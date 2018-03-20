@@ -29,12 +29,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
+        http.requestMatchers()
+                .antMatchers("/login", "/oauth/authorize", "/exit")
+                .and()
                 .authorizeRequests()
-                .antMatchers("/check_token").permitAll()
-                .anyRequest().authenticated().and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .csrf().disable();
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                .permitAll();
+
     }
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/css/**", "/js/**").permitAll()
+//                .antMatchers("/check_token", "/login", "/oauth/authorize", "/exit").permitAll()
+//                .anyRequest().authenticated().and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll();
+//    }
 }
