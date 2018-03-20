@@ -43,7 +43,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .withClient("clientId")
                 .secret("secret")
                 .scopes("read", "write", "user_info")
-                .authorizedGrantTypes("authorization_code")
+                .authorizedGrantTypes("authorization_code", "password")
                 .autoApprove(true)
                 .accessTokenValiditySeconds(3600);
     }
