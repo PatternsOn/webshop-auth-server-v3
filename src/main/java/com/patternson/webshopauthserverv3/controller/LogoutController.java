@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ *
+ * Created by Tobias Pettersson 20180320
+ */
 @Controller
 public class LogoutController {
 
     @RequestMapping("/exit")
     public void exit(HttpServletRequest request, HttpServletResponse response) {
         // token can be revoked here if needed
-
-
-        System.out.println("Inne i exit på auth server");
         new SecurityContextLogoutHandler().logout(request, null, null);
         try {
             //sending back to client app

@@ -6,6 +6,10 @@ package com.patternson.webshopauthserverv3.config;
         import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
         import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ *
+ * Created by Tobias Pettersson 20180320
+ */
 @Configuration
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {

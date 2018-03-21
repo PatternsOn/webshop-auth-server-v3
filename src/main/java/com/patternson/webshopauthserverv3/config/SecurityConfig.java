@@ -7,8 +7,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 
+/**
+ *
+ * Created by Tobias Pettersson 20180320
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -38,18 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login")
                 .permitAll();
-
+        // todo permit resources
+//.antMatchers("/css/**", "/js/**").permitAll()
     }
-//        http
-//                .authorizeRequests()
-//                .antMatchers("/css/**", "/js/**").permitAll()
-//                .antMatchers("/check_token", "/login", "/oauth/authorize", "/exit").permitAll()
-//                .anyRequest().authenticated().and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll();
-//    }
 }

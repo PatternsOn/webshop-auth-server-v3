@@ -5,12 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
+/**
+ *
+ * Created by Tobias Pettersson 20180320
+ */
 @RestController
 public class UserController {
 
     @RequestMapping("/user")
     public Principal user(Principal principal) {
-        System.out.println(principal);
         return principal;
     }
 }

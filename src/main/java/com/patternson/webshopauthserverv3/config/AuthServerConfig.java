@@ -12,6 +12,10 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
+/**
+ *
+ * Created by Tobias Pettersson 20180320
+ */
 @Configuration
 @EnableAuthorizationServer
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -30,7 +34,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .allowFormAuthenticationForClients();
     }
 
-
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore()).authenticationManager(authenticationManager);
@@ -47,8 +50,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .autoApprove(true)
                 .accessTokenValiditySeconds(3600);
     }
-
-
 
     @Bean
     public TokenStore tokenStore() {
