@@ -22,7 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("ADMIN")
                 .and()
-                .withUser("user").password("user").roles("USER");;
+                .withUser("user").password("user").roles("USER");
+        ;
     }
 
     @Override
@@ -42,6 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().loginPage("/login")
                 .permitAll();
         // todo permit resources
-//.antMatchers("/css/**", "/js/**").permitAll()
     }
 }
+
